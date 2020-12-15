@@ -1,25 +1,51 @@
 import React, { useState } from "react";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
-import { AppBar, makeStyles, Typography } from "@material-ui/core";
+import {
+  AppBar,
+  createStyles,
+  makeStyles,
+  Theme,
+  Typography,
+  WithStyles,
+  withStyles,
+} from "@material-ui/core";
+import { theme } from "../theme/theme";
+import classes from "*.module.sass";
 
-const useStyles = makeStyles({
-  footer: {
-    height: "auto",
-    position: "absolute",
-    bottom: "0",
-    left: 0,
-  },
-  title: {
-    flexGrow: 1,
-  },
-});
-export default function Footer() {
-  const classes = useStyles();
+const styles = (theme: Theme) =>
+  createStyles({
+    footer: {
+      height: "auto",
+      width: "100%",
+      position: "fixed",
+      bottom: "0",
+      left: 0,
+      backgroundColor: theme.palette.primary.main,
+    },
+    title: {
+      flexGrow: 1,
+      color: theme.palette.grey[100],
+    },
+    title2: {
+      flexGrow: 1,
+      fontWeight: theme.typography.fontWeightMedium,
+      fontSize: theme.typography.body2.fontSize,
+      color: theme.palette.grey[100],
+      textTransform: "uppercase",
+    },
+  });
+function Footer(props: WithStyles<typeof styles>) {
+  const { classes } = props;
   return (
-    <AppBar className={classes.footer}>
-      <Typography variant="h6" className={classes.title}>
-        LOGO
+    <div className={classes.footer}>
+      <Typography variant="body1" className={classes.title}>
+        Hello
       </Typography>
-    </AppBar>
+      <Typography variant="body1" className={classes.title2}>
+        world
+      </Typography>
+    </div>
   );
 }
+
+export default withStyles(styles)(Footer);

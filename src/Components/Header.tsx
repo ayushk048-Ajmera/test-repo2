@@ -34,15 +34,10 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function Header() {
   const classes = useStyles();
 
-  const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setAuth(event.target.checked);
-  };
 
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -60,7 +55,7 @@ export default function Header() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Container maxWidth="lg">
           <Toolbar>
             <Typography variant="h6" className={classes.title}>

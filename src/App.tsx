@@ -15,7 +15,7 @@ function App() {
         <Route path="/about" component={About}></Route>
         <Route path="/contact" component={About}></Route>
       </Switch>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
