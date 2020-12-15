@@ -31,7 +31,7 @@ const styles = (theme: Theme) =>
       fontWeight: theme.typography.fontWeightMedium,
       fontSize: theme.typography.body2.fontSize,
       color: theme.palette.grey[100],
-      textTransform: "uppercase",
+      textTransform: "capitalize",
     },
   });
 function Footer(props: WithStyles<typeof styles>) {
